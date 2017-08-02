@@ -1,47 +1,18 @@
 start = '''
-It's 4 AM and my alarm rings as usual, as it does every day. I wish I could
-sleep in like every other teenager, but I have to get to work. My parents
-refuse to pay my college tuition, so I have to work two jobs and attend my
-classes, all within 24 hours! Tired and sleep-deprived, I get up out of my bed,
-get dressed and go to work. It feels like a normal day as I take the customers'
-orders and make them their drinks, when all of a sudden I find myself on the
-ground and all I can see is darkness...
+It's 4 AM and my alarm rings as usual, as it does every day. I wish I could sleep in like every other teenager, but I have to get to work. My parents refuse to pay my college tuition, so I have to work two jobs and attend my classes, all within 24 hours! Tired and sleep-deprived, I get up out of my bed, get dressed and go to work. It feels like a normal day as I take the customers' orders and make them their drinks, when all of a sudden I find myself on the ground and all I can see is darkness...
 '''
 
 world = '''
-My eyes adjust and the room I'm in comes into focus. I find myself
-all alone in this room and I have no idea where I am. Suddenly I
-hear a voice behind me say, "Hi there! Do you know why you're here?"
-I turn around and see this small, blue cat talking to me.
-A cat is talking to me. I definitely don't know where I am.
-He continues, "Do you want to know why you're here?
-Are you ready to embark on this journey? YES or NO?
+My eyes adjust and the room I'm in comes into focus. I find myself all alone in this room and I have no idea where I am. Suddenly I hear a voice behind me say, "Hi there! Do you know why you're here?" I turn around and see this small, blue cat talking to me. A cat is talking to me. I definitely don't know where I am. He continues, "Do you want to know why you're here? Are you ready to embark on this journey? YES or NO?
 '''
 
 
 firstyes = '''
-The cat guides me out of the room, and I find myself in this dark,
-sad, mysterious world filled my strange fantasy creatures.
-It looks like my worst nightmare. All of sudden, a butterfly zooms
-in front of me and steals my necklace. "Hey, that's mine! Give it
-back to me!" The butterfly turns into a fairy and tells me,
-"Calm down. I'll give it back, you just need to do something for
-me. I have this precious item that was broken up into pieces and
-spread throughout this world. I need you to find those pieces and
-put them back together. I'll be back when you have completed the
-task." She disappears, and I turn over to the cat with a bewildered
-look on my face. The cat, such a helpful creature, disappears,
-saying, "It's nap time." They both leave me alone on this long,
-winding path.
+The cat guides me out of the room, and I find myself in this dark, sad, mysterious world filled my strange fantasy creatures. It looks like my worst nightmare. All of sudden, a butterfly zooms in front of me and steals my necklace. "Hey, that's mine! Give it back to me!" The butterfly turns into a fairy and tells me, "Calm down. I'll give it back, you just need to do something for me. I have this precious item that was broken up into pieces and spread throughout this world. I need you to find those pieces and put them back together. I'll be back when you have completed the task." She disappears, and I turn over to the cat with a bewildered look on my face. The cat, such a helpful creature, disappears, saying, "It's nap time." They both leave me alone on this long, winding path.
 '''
 
 firstno = '''
-How dare this cat tell me what to do? I need to get out of here
-and go back to work. Ooh there's a door in the corner,
-let me leave this weird room. I walk to the door and leave,
-but find myself in the exact same room with the cat laughing
-in my face. He asks, "Are you ready to embark on this journey?
-Let me give you a hint... the correct answer is YES."
+How dare this cat tell me what to do? I need to get out of here and go back to work. Ooh there's a door in the corner, let me leave this weird room. I walk to the door and leave, but find myself in the exact same room with the cat laughing in my face. He asks, "Are you ready to embark on this journey? Let me give you a hint... the correct answer is YES."
 '''
 print (start)
 
@@ -58,12 +29,7 @@ while not done:
         print("Please type 'yes' or 'no'");
 
 farmer = '''
-All by myself, I walk along the path when I see an old farmer
-frowning about something. Since I have nothing better to do I
-go over and ask him what happened. He explains to me,
-"My plants are under attack from the vicious slime viruses and
-the harvest is about to come soon. If I don't save my plants
-I won't have any food to give my family. Can you help me?"
+All by myself, I walk along the path when I see an old farmer frowning about something. Since I have nothing better to do I go over and ask him what happened. He explains to me, "My plants are under attack from the vicious slime viruses and the harvest is about to come soon. If I don't save my plants I won't have any food to give my family. Can you help me?"
 '''
 
 secondyes = '''
@@ -81,7 +47,7 @@ keep walking.
 
 secondokay = '''
 Proud of my amazing idea, I set fire to the slimes.
-The good thing is, the slime is gone (which is what I
+The good thing is, the slime is gone (which is what it
 was supposed to do), but I kind of, accidentally, not
 on purpose, killed all of the farmer's plants as well.
 Oops! The farmer, outraged, strikes me and I black out
@@ -122,28 +88,13 @@ quite sad and I need to help him somehow.
 '''
 
 firstbad = '''
-I compliment the horse and tell him there's nothing wrong with being alone.
-Society is never nice to anyone anyways.
-The horse gets angry and says, "the same goes for you." I think to myself,
- "Wow he's mean, no wonder he doesn't have any friends." Funnily enough,
- I soon find myself back in the room with the cat is back in the dark room
- again.
+I compliment the horse and tell him there's nothing wrong with being alone. Society is never nice to anyone anyways. The horse gets angry and says, "the same goes for you." I think to myself, "Wow he's mean, no wonder he doesn't have any friends." Funnily enough, I soon find myself back in the room with the cat is back in the dark room again.
 '''
 secondbad = '''
-I give the horse the fruit from the farmer and tell him that it will make him
-look prettier (at least I hope it will). The horse is allergic to it and has a reaction. Well, how was I supposed to
-know. He gets mad at me and beats me up. I black out and find myself back in
-the room with the cat.
+I give the horse the fruit from the farmer and tell him that it will make him look prettier (at least I hope it will). The horse is allergic to it and has a reaction. Well, how was I supposed to know. He gets mad at me and beats me up. I black out and find myself back in the room with the cat.
 '''
 good = '''
-I give him the seashell I got from the farmer since I ave no other idea.
-When I was giving him the seashell I accidentally drop it into the pond.
-The shell grows into a beautiful long horn. I take it and put it on top of
-the horse's head, turning him into a majestic unicorn. Grateful, the unicorn
-thanks me and gives me three things:  a hammer, a flute, and a book. I also
-find another piece of paper near the water saying "let love for yourself set
-you free of them." I sigh and put the paper in my back pocket along with the
-first paper and continue along.
+I give him the seashell I got from the farmer since I ave no other idea. When I was giving him the seashell I accidentally drop it into the pond. The shell grows into a beautiful long horn. I take it and put it on top of the horse's head, turning him into a majestic unicorn. Grateful, the unicorn thanks me and gives me three things:  a hammer, a flute, and a book. I also find another piece of paper near the water saying "let love for yourself set you free of them." I sigh and put the paper in my back pocket along with the first paper and continue along.
 '''
 
 print (unicorn)
