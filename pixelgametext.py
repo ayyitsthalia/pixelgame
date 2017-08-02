@@ -33,35 +33,16 @@ All by myself, I walk along the path when I see an old farmer frowning about som
 '''
 
 secondyes = '''
-I'm panicking because I don't know what to do, but I really
-want to help this farmer. I start singing because that's what
-I do when I'm stressed. Fortunately, the slimes seem to enjoy
-my song and start to melt and disappear. Thrilled, the farmer
-thanks me and gives me two things: a 'fruit-like' object that
-can change color and a little seashell. I walk back to the path
-when I find a piece of paper underneath one of the burned plants.
- I pick it up and I read, "Having a soft heart in a cruel world
- is courage, not weakness." I scoff and ignore the quote and
-keep walking.
+I'm panicking because I don't know what to do, but I really want to help this farmer. I start singing because that's what I do when I'm stressed. Fortunately, the slimes seem to enjoy my song and start to melt and disappear. Thrilled, the farmer thanks me and gives me two things: a 'fruit-like' object that can change color and a little seashell. I walk back to the path when I find a piece of paper underneath one of the burned plants. I pick it up and I read, "Having a soft heart in a cruel world is courage, not weakness." I scoff and ignore the quote and keep walking.
 '''
 
 secondokay = '''
-Proud of my amazing idea, I set fire to the slimes.
-The good thing is, the slime is gone (which is what it
-was supposed to do), but I kind of, accidentally, not
-on purpose, killed all of the farmer's plants as well.
-Oops! The farmer, outraged, strikes me and I black out
-and end up in the dark room I was in at the beginning.
-The cat makes an appearance and says, "It seems like you
-did the wrong thing, Here let's give you another try!"
+Proud of my amazing idea, I set fire to the slimes. The good thing is, the slime is gone (which is what it was supposed to do), but I kind of, accidentally, not on purpose, killed all of the farmer's plants as well. Oops! The farmer, outraged, strikes me and I black out
+and end up in the dark room I was in at the beginning. The cat makes an appearance and says, "It seems like you made the wrong choice, let's give you another try!"
 '''
 
 secondno = '''
-I walk away from the farmer, feeling a little bad, but in
-no mood to help this farmer. All of a sudden, a bright light
-flashes over my eyes and I find myself in the dark room with
-the cat. He says, "It seems like you made the wrong choice,
-Here let's give you another try!"
+I walk away from the farmer, feeling a little bad, but in no mood to help this farmer. All of a sudden, a bright light flashes over my eyes and I find myself in the dark room with the cat. He says, "It seems like you made the wrong choice, let's give you another try!"
 '''
 print (farmer)
 done = False
@@ -77,14 +58,7 @@ while not done:
     else:
         print("Please type 'yes' or 'okay' or 'no'");
 
-unicorn = '''I see a pond in the distance and goes over there to rest for a
-while. I hear a cry behind me and looks over to find a horse. I think to
-myself, "Wow, this is one interesting horse. He isn't very... Hmm... what's
-the word... nice to look at." I ask him what's wrong and he says, "I so sad,
-and I don't like how I look because I'm not as pretty as the other horses,
-and everyone teases me." I feel bad about what I thought, and realize that
-what's inside is more important than how someone looks. Still, the horse is
-quite sad and I need to help him somehow.
+unicorn = '''I see a pond in the distance and goes over there to rest for a while. I hear a cry behind me and looks over to find a horse. I think to myself, "Wow, this is one interesting horse. He isn't very... Hmm... what's the word... nice to look at." I ask him what's wrong and he says, "I so sad, and I don't like how I look because I'm not as pretty as the other horses, and everyone teases me." I feel bad about what I thought, and realize that what's inside is more important than how someone looks. Still, the horse is quite sad and I need to help him somehow.
 '''
 
 firstbad = '''
