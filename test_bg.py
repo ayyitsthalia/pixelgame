@@ -43,7 +43,6 @@ bg2 = pygame.image.load("bg2.jpg")
 currentScreen =  bg1
 cat = Cat()
 clock = pygame.time.Clock()
-#StartScreen = Background_img()
 
 running = True
 while running:
@@ -82,5 +81,7 @@ while running:
 
     cat.handle_keys()
     cat.draw(screen)
+    screen.fill((0,0,0))
+    screen.blit(currentScreen, (0,0))
     pygame.display.update()
     clock.tick(40)
