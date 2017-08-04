@@ -26,16 +26,18 @@ icon = pygame.image.load('nickright.png') ### icon
 pygame.display.set_icon(icon)
 
 ##########  images sources  #############
-bg1 = pygame.image.load("bg1.jpg")
-bg2 = pygame.image.load("bg2.jpg")
+bg1 = pygame.image.load("bed.jpg")
+bg2 = pygame.image.load("boruto.jpg")
 playerimg = pygame.image.load('MC1.png')
-tick = time.time()
-clock = time
-
-
+clock = pygame.time.Clock()
+currentScreen = bg1 
+global gameOver #### global gameOver
+global player  ##for the mc
+global running ## tu run the game
 
 ####### to continue the game  ###############
 def gameLoop():
+    global gameOver
     gameExit = False
     gameOver = False
 
@@ -51,7 +53,7 @@ class Player(object):
     def handle_keys(self):
         # player movement
         key = pygame.key.get_pressed()
-        dist = 5
+        dist = 10
         if key[pygame.K_DOWN]:
             self.y += dist
         elif key[pygame.K_UP]:
@@ -63,29 +65,30 @@ class Player(object):
 
     def update(self):
         # player moving through different scenes
+        global currentScreen 
         if player.y >= 400:
-            if currentScreen == bg1:
+            if currentScreen == bg1: ## bg 1 vs bg 2
                 player.y = 0
-                screen.fill((0,0,0))
-                screen.blit(bg2,(0,0))
+                gameDisplay.fill((0,0,0))
+                gameDisplay.blit(bg2,(0,0))
                 currentScreen = bg2
 
-            elif currentScreen == bg2:
-                screen.fill((0,0,0))
-                screen.blit(bg2,(0,0))
+            elif currentScreen == bg2: ## bg 2 in place
+                gameDisplay.fill((0,0,0))
+                gameDisplay.blit(bg2,(0,0))
                 currentScreen = bg2
                 player.y = 400
 
         elif player.y <= 0:
-            if currentScreen == bg2:
+            if currentScreen == bg2: ## bg2 vs bg1
                 player.y = 400
-                screen.fill((0,0,0))
-                screen.blit(bg1,(0,0))
+                gameDisplay.fill((0,0,0))
+                gameDisplay.blit(bg1,(0,0))
                 currentScreen = bg1
 
-            elif currentScreen == bg1:
-                screen.fill((0,0,0))
-                screen.blit(bg1,(0,0))
+            elif currentScreen == bg1: ## bg1 in place
+                gameDisplay.fill((0,0,0))
+                gameDisplay.blit(bg1,(0,0))
                 currentScreen = bg1
                 player.y = 0
      ###### The sprite is going from top to bottom :D
@@ -121,9 +124,45 @@ def text_objects(text,color,size):
         textSurface = largefont.render(text, True, black)
     return textSurface, textSurface.get_rect()
 
+################ #####################
+def game_running ():
+    global running
+    running = True
+    while running :
+    ############  when you are not in game over #########
+        global gameOver 
+        gameOver = False
+        while gameOver != True:
+            for event in pygame.event.get():
+                if event.type == pygame.QUIT:
+                    pygame.quit()
+                    running = False
+            currentScreen = bg1
+            pygame.image.load("bed.jpg")
+            global player
+            player = Player()
+            player.handle_keys()
+            player.draw(currentScreen)
+            player.update()
+            gameDisplay.fill((0,0,0))
+            gameDisplay.blit(currentScreen, (0,0))
+            pygame.display.update()
+            clock.tick(40)
+
+
+    gameLoop()
+
 ################### I N T R O   S C R E E N  #################################
 def gameIntro ():
     intro = True
+    ########### layout of the intro screen #####################
+    gameDisplay.fill(white)
+    message_to_screen("Welcome to ___", green, -100, size = "large")
+    message_to_screen("...", black, -30, size = "small")
+    message_to_screen("...", black, 10, size = "small")
+    message_to_screen("...", black, 50, size = "small")
+    message_to_screen("Press C to play or Q to quit", black, 180, size = "small")
+
     while intro:
         for event in pygame.event.get(): ### choice to exit the game
             if event.type == pygame.QUIT:
@@ -132,48 +171,21 @@ def gameIntro ():
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_c:
                     intro = False
-                    currentScreen = bg1
-                    pygame.image.load(bg1)
-                    player.update()
-                if event.key == pygame.K_q:
+                    print("please work")
+                    game_running()
+                   
+
+                elif event.key == pygame.K_q:
                     pygame.quit()
                     quit()
 
-        ########### layout of the intro screen #####################
-        gameDisplay.fill(white)
-        message_to_screen("Welcome to ___", green, -100, size = "large")
-        message_to_screen("...", black, -30, size = "small")
-        message_to_screen("...", black, 10, size = "small")
-        message_to_screen("...", black, 50, size = "small")
-        message_to_screen("Press C to play or Q to quit", black, 180, size = "small")
-
         pygame.display.update()
-        clock.tick(15)
+        clock.tick(40)
 
-
-currentScreen = bg1
-player = Player() ##for the mc
 ############# S T A R T I N G   T H E   G A M E ##########################
 pygame.init()
 gameIntro()
-running = True
-while running :
-    ############  when you are not in game over #########
-    while gameOver != True:
-        for event in pygame.event.get():
-            if event.type == pygame.QUIT:
-                pygame.quit()
-                running = False
 
-    player.handle_keys()
-    player.update()
-    gameDisplay.blit(currentScreen, (0,0))
-    gameDisplay.fill((0,0,0))
-    pygame.display.update()
-    clock.tick(40)
-
-
-gameLoop()
 pygame.quit()
 quit()
 
