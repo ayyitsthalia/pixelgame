@@ -8,7 +8,7 @@ My eyes adjust and the room I'm in comes into focus. I find myself all alone in 
 
 
 firstyes = '''
-The cat guides me out of the room, and I find myself in this dark, sad, mysterious world filled my strange fantasy creatures. It looks like my worst nightmare. All of sudden, a butterfly zooms in front of me and steals my necklace. "Hey, that's mine! Give it back to me!" The butterfly turns into a fairy and tells me, "Calm down. I'll give it back, you just need to do something for me. I have this precious item that was broken up into pieces and spread throughout this world. I need you to find those pieces and put them back together. I'll be back when you have completed the task." She disappears, and I turn over to the cat with a bewildered look on my face. The cat, such a helpful creature, disappears, saying, "It's nap time." They both leave me alone on this long, winding path.
+The cat guides me out of the room, and I find myself in this dark, sad, mysterious world filled my strange fantasy creatures. It looks like my worst nightmare. All of sudden, a butterfly zooms in front of me and steals my bracelet. "Hey, that's mine! Give it back to me!" The butterfly turns into a fairy and tells me, "Calm down. I'll give it back, you just need to do something for me. I have this precious item that was broken up into pieces and spread throughout this world. I need you to find those pieces and put them back together. I'll be back when you have completed the task." She disappears, and I turn over to the cat with a bewildered look on my face. The cat, such a helpful creature, disappears, saying, "It's nap time." They both leave me alone on this long, winding path.
 '''
 
 firstno = '''
@@ -85,36 +85,6 @@ while not done:
     else:
         print("Please type 'society' or 'fruit' or 'seashell'");
 
-rock = '''
-Night has begins to fall, and I decide to take another break. I'm super tired and sit down on a rock when a tiny voice screams "STOPPPP!!" Surprised, I stand up and see a tiny rock looking back at me, pouting, "You big people keep on bullying me. I may be small but I can beat you up as well." Behind me, the bigger rocks start laughing and mocking this poor little rock. The little rock seems scared, her eyes are teary but she is still trying to fight back. Feeling bad for this rock, I ask the bigger rocks to stop their teasing. They don't stop and start teasing both of us. Now annoyed, I think of what to do to help the rock.
-'''
-
-rockbad = '''
-I use the hammer the unicorn gave me to break the big rocks into smaller rocks and all the rocks get mad and start attacking me as little pieces, surrounding and crushing me. I wake up back in the dark room with the cat and he gives me another chance.
-'''
-
-secondrockbad = '''
-I use the flute the unicorn gave me to play music:  The flute plays a super squeaky sound which irritates the rocks even more. They get mad and attack me by crushing me really tightly. I wake up back in the dark room with the cat and he gives me another chance.
-'''
-
-rockgood = '''
-I use the book the unicorn gave me, but I soon realize that the book is blank, and I don't know what to do. Panicking, I quickly make up a story to tell the rocks. I tell them a story of a beautiful garden, one my mom used to tell me. The rocks thank me for bringing them joy and something to think of instead of picking on the big rocks. I walk away satisfied that I helped solve that dispute. Out of the corner of my eye, I see a little piece of paper in a cave between the big rocks. I pick it up it up and it reads, " there is no love without forgiveness and there is no forgiveness without love". I don't understand and I keep walking on my path.
-'''
-
-print (rock)
-done = False
-while not done:
-    user_input = input("Type 'hammer' to break the big rocks or 'flute' to play music or 'book' read the book: ")
-    if user_input == "hammer":
-        print (rockbad)
-    elif user_input =="flute":
-        print (secondrockbad)
-    elif user_input == "book":
-        print(rockgood)
-        done = True
-    else:
-        print("Please type 'hammer' or 'flute' or 'book'");
-
 mom = '''
 I walk for a long time as everything gets darker and darker, and I get a little chill. "Did you miss me?" The annoying cat pops out of nowhere and smiles at me. "I'm surprised you're finally here, can you believe it?" I'm confused, but of course the cat continues, "Now, I think you have enough clues to summon the little fairy back" Wanting my bracelet back, I quickly take out all of the pieces of quotes and put them together. I wait for a few seconds but nothing happens. I glare, dryly, at the talking cat. "What are you doing)?" My heart almost jumps out of my chest. It's Mom's voice! I turn around to face her and explain my whole situation but she spats, "Why did you leave me all alone in that house?" Fear creeps into my chest as she continues. "Are you dumping your mom just like your useless dad? Who do you think you are? You are nothing to me. You were nothing but a hinderance to me and that useless father of yours. However, I won't just abandon you. I can give you a choice. You either come live with me or get out of my house and live with your terrible Dad."
 '''
@@ -153,14 +123,14 @@ I open my eyes and see I'm in a dungeon. I try to get out but my hands are chain
 print (finalpuzzle)
 done = False
 while not done:
-    user_input = input("Type 'drawing' to go back to reality or 'necklace,' to get new parents: ")
+    user_input = input("Type 'drawing' to go back to reality or 'bracelet,' to get new parents: ")
     if user_input == "drawing":
         print (drawing)
         done = True
-    elif user_input =="necklace":
+    elif user_input =="bracelet":
         print (charm)
         done = True
     else:
-        print("Please type 'drawing' or 'necklace'");
+        print("Please type 'drawing' or 'bracelet'");
 
 print ('The End!!!')
