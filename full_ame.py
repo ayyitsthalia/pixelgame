@@ -26,15 +26,18 @@ icon = pygame.image.load('nickright.png') ### icon
 pygame.display.set_icon(icon)
 
 ##########  images sources  #############
-bg1 = pygame.image.load("bed.jpg")
-bg2 = pygame.image.load("boruto.jpg")
+bg1 = pygame.image.load("bg1.jpg")
+bg2 = pygame.image.load("bg2.jpg")
 playerimg = pygame.image.load('MC1.png')
 clock = pygame.time.Clock()
-currentScreen = bg1 
+currentScreen = bg1
 global gameOver #### global gameOver
 global player  ##for the mc
 global running ## tu run the game
-
+global Start_x ## current position of mc
+global Start_y ## current position of mc
+global current_x
+global current_y
 ####### to continue the game  ###############
 def gameLoop():
     global gameOver
@@ -47,56 +50,69 @@ class Player(object):
     def __init__(self):
         # define player
         self.image = pygame.image.load("MC1.png")
-        self.x = 0
-        self.y = 0
+        self.x = 100
+        self.y = 100
+        global Start_x
+        global Start_y
+        Start_x = self.x
+        Start_y = self.y
 
     def handle_keys(self):
         # player movement
         key = pygame.key.get_pressed()
         dist = 10
         if key[pygame.K_DOWN]:
-            self.y += dist
+            #current_y = current_y + dist
+            global Start_y
+            global current_y
+            current_y = Start_y + dist
+
         elif key[pygame.K_UP]:
-            self.y -=dist
+            global Start_y
+            Start_y -=dist
+
         if key[pygame.K_RIGHT]:
-            self.x += dist
+            global Start_x
+            Start_x += dist
+
         elif key[pygame.K_LEFT]:
-            self.x -= dist
+            global Start_x
+            Start_x -= dist
 
-    def update(self):
-        # player moving through different scenes
-        global currentScreen 
-        if player.y >= 400:
-            if currentScreen == bg1: ## bg 1 vs bg 2
-                player.y = 0
-                gameDisplay.fill((0,0,0))
-                gameDisplay.blit(bg2,(0,0))
-                currentScreen = bg2
-
-            elif currentScreen == bg2: ## bg 2 in place
-                gameDisplay.fill((0,0,0))
-                gameDisplay.blit(bg2,(0,0))
-                currentScreen = bg2
-                player.y = 400
-
-        elif player.y <= 0:
-            if currentScreen == bg2: ## bg2 vs bg1
-                player.y = 400
-                gameDisplay.fill((0,0,0))
-                gameDisplay.blit(bg1,(0,0))
-                currentScreen = bg1
-
-            elif currentScreen == bg1: ## bg1 in place
-                gameDisplay.fill((0,0,0))
-                gameDisplay.blit(bg1,(0,0))
-                currentScreen = bg1
-                player.y = 0
+    # def update(self):
+    #     # player moving through different scenes
+    #     global currentScreen
+    #     if player.y >= 600:
+    #         if currentScreen == bg1: ## bg 1 vs bg 2
+    #             player.y = 0
+    #             gameDisplay.fill((0,0,0))
+    #             gameDisplay.blit(bg2,(0,0))
+    #             currentScreen = bg2
+    #
+    #         elif currentScreen == bg2: ## bg 2 in place
+    #             gameDisplay.fill((0,0,0))
+    #             gameDisplay.blit(bg2,(0,0))
+    #             currentScreen = bg2
+    #             player.y = 600
+    #
+    #     elif player.y <= 0:
+    #         if currentScreen == bg2: ## bg2 vs bg1
+    #             player.y = 600
+    #             gameDisplay.fill((0,0,0))
+    #             gameDisplay.blit(bg1,(0,0))
+    #             currentScreen = bg1
+    #
+    #         elif currentScreen == bg1: ## bg1 in place
+    #             gameDisplay.fill((0,0,0))
+    #             gameDisplay.blit(bg1,(0,0))
+    #             currentScreen = bg1
+    #             player.y = 0
      ###### The sprite is going from top to bottom :D
 
     def draw(self, surface):
         # to move the cat freely :D
         """ Draw on surface"""
-        surface.blit(self.image, (self.x, self.y))
+        surface.blit(self.image, (Start_x, Start_y))
 
 
 ################## M E S S A G E S #####################################
@@ -130,7 +146,7 @@ def game_running ():
     running = True
     while running :
     ############  when you are not in game over #########
-        global gameOver 
+        global gameOver
         gameOver = False
         while gameOver != True:
             for event in pygame.event.get():
@@ -138,14 +154,14 @@ def game_running ():
                     pygame.quit()
                     running = False
             currentScreen = bg1
-            pygame.image.load("bed.jpg")
+            pygame.image.load("bg1.jpg")
             global player
             player = Player()
             player.handle_keys()
             player.draw(currentScreen)
-            player.update()
+            #player.update()
             gameDisplay.fill((0,0,0))
-            gameDisplay.blit(currentScreen, (0,0))
+            gameDisplay.blit(currentScreen, (100,100))
             pygame.display.update()
             clock.tick(40)
 
@@ -171,9 +187,8 @@ def gameIntro ():
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_c:
                     intro = False
-                    print("please work")
                     game_running()
-                   
+
 
                 elif event.key == pygame.K_q:
                     pygame.quit()
