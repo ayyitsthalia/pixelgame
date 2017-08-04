@@ -138,7 +138,7 @@ while running:
         if event.type == pygame.QUIT:
             pygame.quit()
             running = False
-    # currently in background 1
+    # from Bcakground 1 to Background 2 (going up)
     if cat.y >= 600:
         if currentScreen == bg1:
             cat.y = 0
@@ -151,6 +151,7 @@ while running:
             screen.blit(bg2,(0,0))
             currentScreen = bg2
             cat.y = 600
+
     elif cat.y <= 0:
         if currentScreen == bg2:
             cat.y = 600
@@ -163,19 +164,20 @@ while running:
             screen.blit(bg1,(0,0))
             currentScreen = bg1
             cat.y = 0
-#currently in background 1
+#Background 1 and Background 3 (going left)
     if cat.x >= 800:
         if currentScreen == bg1:
             cat.x = 0
             screen.fill((0,0,0))
-            screen.blit(bg4,(0,0))
-            currentScreen = bg4
+            screen.blit(bg3,(0,0))
+            currentScreen = bg3
 
         elif currentScreen == bg3:
             screen.fill((0,0,0))
-            screen.blit(bg2,(0,0))
+            screen.blit(bg3,(0,0))
             currentScreen = bg3
             cat.x = 800
+
     elif cat.x <= 0:
         if currentScreen == bg3:
             cat.x = 800
@@ -188,10 +190,10 @@ while running:
             screen.blit(bg1,(0,0))
             currentScreen = bg1
             cat.x = 0
-#next background
-    if cat.x >= 800:
-        if currentScreen == bg1:
-            cat.x = 0
+#Background 3 and Background 4 (going down)
+    if cat.y >= 600:
+        if currentScreen == bg3:
+            cat.y = 0
             screen.fill((0,0,0))
             screen.blit(bg4,(0,0))
             currentScreen = bg4
@@ -200,19 +202,21 @@ while running:
             screen.fill((0,0,0))
             screen.blit(bg4,(0,0))
             currentScreen = bg4
-            cat.x = 800
-    elif cat.x <= 0:
-        if currentScreen == bg4:
-            cat.x = 0
-            screen.fill((0,0,0))
-            screen.blit(bg1,(0,0))
-            currentScreen = bg1
+            cat.y = 600
 
-        elif currentScreen == bg1:
+    elif cat.y <= 0:
+        if currentScreen == bg4:
+            cat.y = 600
+            screen.fill((0,0,0))
+            screen.blit(bg3,(0,0))
+            currentScreen = bg3
+
+        elif currentScreen == bg3:
             screen.fill((0,0,0))
             screen.blit(bg1,(0,0))
-            currentScreen = bg1
-            cat.x = 0
+            currentScreen = bg3
+            cat.y = 0
+
 
     mc.moving_keys()
     mc.loop()
