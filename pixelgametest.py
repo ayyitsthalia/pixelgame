@@ -10,8 +10,10 @@ black = (0,0,0)
 white = (255, 255, 255)
 red = (200, 0, 0)
 green = (0, 200, 0)
+blue = (0, 0, 200)
 bright_red = (255, 0, 0)
 bright_green = (0, 255, 0)
+bright_blue = (0, 0, 255)
 bg1 = pygame.image.load("background1.png")
 bg2 = pygame.image.load("background2.png")
 currentScreen = bg1
@@ -74,6 +76,7 @@ def game_intro():
         #gameDisplay.blit(TextSurf, TextRect)
         button("Choice 1",150,390,100,50,green,bright_green,"wrong")
         button("Choice 2",350,390,100,50,red,bright_red, "wrong1")
+        button("Choice 3",350,390,100,50,blue,bright_blue, "right")
 
         pygame.display.update()
         clock.tick(15)
@@ -88,6 +91,7 @@ def button(msg,x,y,w,h,ic,ac,action=None):
         if click[0] == 1 and action != None:
             if action == "wrong":
                     #***action for what happens when you click button goes here
+                    button("Result of Choice",350,390,100,50,blue,bright_blue, "test")
                     print("bye")
             elif action == "wrong1":
                     print("adios")
