@@ -28,18 +28,18 @@ display_height = 530
 global gameDisplay
 gameDisplay = pygame.display.set_mode((display_width,display_height))
 pygame.display.set_caption('The Forest') ## title
-icon = pygame.image.load('nickright.png') ### icon
+icon = pygame.image.load('nick.png') ### icon
 pygame.display.set_icon(icon)
 
 ##########  images sources  #############
-bg1 = pygame.image.load("4leftnew.png")
-bg2 = pygame.image.load("3leftnew.png") 
-bg3 = pygame.image.load("3rightnew.png") 
-bg4 = pygame.image.load("2leftnew.png")
-bg5 = pygame.image.load("2rightnew.png")  
-bg6 = pygame.image.load("1leftnew.png")   
-bg7 = pygame.image.load("1rightnew.png")     
-bg8 = pygame.image.load("4rightnew.png")       
+bg1 = pygame.image.load("4left.png")
+bg2 = pygame.image.load("3left.png")
+bg3 = pygame.image.load("3right.png")
+bg4 = pygame.image.load("2left.png")
+bg5 = pygame.image.load("2right.png")
+bg6 = pygame.image.load("1left.png")
+bg7 = pygame.image.load("1right.png")
+bg8 = pygame.image.load("4right.png")
 bg9 = pygame.image.load("fairybackground.png")
 playerimg = pygame.image.load('MC1.png')
 clock = pygame.time.Clock()
@@ -301,7 +301,7 @@ class Cat(object):
     def paint(self, surface):
         if currentScreen == bg1:
             surface.blit(self.image, (self.x, self.y))
-        else: 
+        else:
             pass
 
     def touch(self, player):
@@ -321,7 +321,7 @@ class Farmer(object):
     def color(self, surface):
         if currentScreen == bg2:
             surface.blit(self.image, (self.x, self.y))
-        else: 
+        else:
             pass
 
     def contact(self, player):
@@ -341,7 +341,7 @@ class Unicorn(object):
     def create(self, surface):
         if currentScreen == bg7:
             surface.blit(self.image, (self.x, self.y))
-        else: 
+        else:
             pass
 
     def feel(self, player):
@@ -361,7 +361,7 @@ class Mom(object):
     def art(self, surface):
         if currentScreen == bg8:
             surface.blit(self.image, (self.x, self.y))
-        else: 
+        else:
             pass
 
     def sense(self, player):
@@ -381,7 +381,7 @@ class Fairy(object):
     def scribble(self, surface):
         if currentScreen == bg9:
             surface.blit(self.image, (self.x, self.y))
-        else: 
+        else:
             pass
 
     def hit(self, player):
@@ -460,7 +460,7 @@ def game_running ():
             gameDisplay.blit(currentScreen, (0,0))
             clock.tick(40)
 
-    
+
 ################### I N T R O   S C R E E N  #################################
 def gameIntro ():
     intro = True
@@ -561,20 +561,20 @@ def talk_to_cat ():
                     player.x = 10
                     player.y = 10
                     talk_cat = False
-                    
+
                 elif event.key == pygame.K_ESCAPE:
                     pygame.quit()
                     quit()
-        
+
         pygame.display.update()
         clock.tick(40)
-            
+
 #############  T A L K   T O   F A R M E R   ############################
 def talk_to_farmer ():
     talk_farmer = True
     gameDisplay.fill(black)
     message_to_screen("All by myself, I walk along the path when I see an old ", white, -200, size = "okie")
-    
+
     message_to_screen("farmer frowning about something. Since I have nothing better  ", white, -180, size = "okie")
     message_to_screen("to do, I go over and ask him what happened. He explains to me,", white, -160, size = "okie")
     message_to_screen("'My plants are under attack from the vicious slime viruses and ", white, -140, size = "okie")
@@ -590,11 +590,18 @@ def talk_to_farmer ():
             if event.type == pygame.QUIT:
                 pygame.quit()
                 quit()
-
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_a:
                     intro = False
-                    
+                    gameDisplay.fill(black)
+                    message_to_screen("Fortunately, the slimes seem to enjoy my song and start", white, -180, size = "okie")
+                    message_to_screen("to melt and disappear. Thrilled, the farmer thanks me and", white, -160, size = "okie")
+                    message_to_screen("gives me two things: a 'fruit-like' object that can change", white, -140, size = "okie")
+                    message_to_screen("color and a little seashell. I walk back to the path when I", white, -120, size = "okie")
+                    message_to_screen("find a piece of paper underneath one of the plants. It says,", white, -100, size = "okie")
+                    message_to_screen("'Having a soft heart in a cruel world is courage, not weakness.'", white, -80, size = "okie")
+                    message_to_screen("Press ENTER to continue your journey", white, -20, size = "okie")
+                elif event.key == pygame.K_RETURN:
                     global currentScreen
                     currentScreen = bg7
                     player.x = 50
@@ -616,11 +623,11 @@ def talk_to_farmer ():
                     player.x = 10
                     player.y = 10
                     talk_farmer = False
-                    
+
                 elif event.key == pygame.K_ESCAPE:
                     pygame.quit()
                     quit()
-        
+
         pygame.display.update()
         clock.tick(40)
 
@@ -647,6 +654,15 @@ def talk_to_unicorn ():
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_d:
                     intro = False
+                    gameDisplay.fill(black)
+                    message_to_screen("When I was giving him the seashell I accidentally dropped it into", white, -180, size = "okie")
+                    message_to_screen("the pond. The shell grew into a beautiful long horn. I take it and", white, -160, size = "okie")
+                    message_to_screen("put it on top of the unicorn's head making him beautiful. Grateful,", white, -140, size = "okie")
+                    message_to_screen("the unicorn thanks me and gives me another piece of paper saying,", white, -120, size = "okie")
+                    message_to_screen("'let love for youself set you free of them.' I sigh and put the ", white, -100, size = "okie")
+                    message_to_screen("paper in my back pocket and continue along", white, -80, size = "okie")
+                    message_to_screen("Press ENTER to continue your journey", white, -20, size = "okie")
+                elif event.key == pygame.K_RETURN:
                     global currentScreen
                     currentScreen = bg8
                     player.x = 50
@@ -668,11 +684,11 @@ def talk_to_unicorn ():
                     player.x = 10
                     player.y = 10
                     talk_unicorn = False
-                    
+
                 elif event.key == pygame.K_ESCAPE:
                     pygame.quit()
                     quit()
-        
+
         pygame.display.update()
         clock.tick(40)
 
@@ -701,10 +717,21 @@ def talk_to_mom ():
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_g:
                     intro = False
+                    gameDisplay.fill(black)
+                    message_to_screen("I stand there crying but smiling at the same time to Mom.", white, -180, size = "okie")
+                    message_to_screen("'Mom, I know dad has done many bad things to you, but he", white, -160, size = "okie")
+                    message_to_screen("still loves you a lot, as much as I do. I know both of you", white, -140, size = "okie")
+                    message_to_screen("have made mistakes, but I forgive you. You don't have to worry", white, -120, size = "okie")
+                    message_to_screen("about me anymore. I'll take care of myself.' I smile at my mom", white, -100, size = "okie")
+                    message_to_screen("as she slowly disappears. As she fades away, she mouths,'We are", white, -80, size = "okie")
+                    message_to_screen("proud of you.'", white, -60, size = "okie")
+                    message_to_screen("Press ENTER to continue", white, -20, size = "okie")
+
+                elif event.key == pygame.K_RETURN:
                     global currentScreen
                     currentScreen = bg9
                     player.x = 50
-                    player.y = 50 
+                    player.y = 50
                     talk_mom = False
 
                 elif event.key == pygame.K_h:
@@ -714,11 +741,11 @@ def talk_to_mom ():
                     player.x = 10
                     player.y = 10
                     talk_mom = False
-                    
+
                 elif event.key == pygame.K_ESCAPE:
                     pygame.quit()
                     quit()
-        
+
         pygame.display.update()
         clock.tick(40)
 
@@ -750,7 +777,7 @@ def talk_to_fairy ():
                     global currentScreen
                     currentScreen = bg10
                     player.x = 50
-                    player.y = 50 
+                    player.y = 50
                     talk_fairy = False
 
                 elif event.key == pygame.K_j:
@@ -760,11 +787,11 @@ def talk_to_fairy ():
                     player.x = 10
                     player.y = 10
                     talk_fairy = False
-                    
+
                 elif event.key == pygame.K_ESCAPE:
                     pygame.quit()
                     quit()
-        
+
         pygame.display.update()
         clock.tick(40)
 
