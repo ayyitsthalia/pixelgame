@@ -9,17 +9,11 @@ white = (255,255,255)
 black = (0,0,0)
 
 red = (250,128,114)
-light_red = (255,0,0)
-
-yellow = (200,200,0)
-light_yellow = (255,255,0)
 
 green = (60,179,113)
-light_green = (0,255,0)
 
 purple = (147,112,219)
-blue = (176,196,222)
-
+blue = (95,158,160)
 
 
 ######### Title and icon ###########################
@@ -27,7 +21,7 @@ display_width = 680
 display_height = 530
 gameDisplay = pygame.display.set_mode((display_width,display_height))
 pygame.display.set_caption('The Forest') ## title
-icon = pygame.image.load('nickright.png') ### icon
+icon = pygame.image.load('butterfly.png') ### icon
 pygame.display.set_icon(icon)
 
 ##########  images sources  #############
@@ -39,8 +33,10 @@ bg5 = pygame.image.load("2right.png")      ##map unicorn ***
 bg6 = pygame.image.load("1left.png")        ##map bottom left corner ***
 bg7 = pygame.image.load("1right.png")        ##map bottom right corner ***
 bg8 = pygame.image.load("4right.png")        ##the boss screen
+giff = pygame.image.load("giphy.gif").convert_alpha()
+ty = pygame.image.load("thanks.png")
 
-playerimg = pygame.image.load('MC1.png')
+playerimg = pygame.image.load('MC.png')
 clock = pygame.time.Clock()
 currentScreen = bg1
 global gameOver #### global gameOver
@@ -58,7 +54,7 @@ def gameLoop():
 class Player(object):
     def __init__(self):
         # define player
-        self.image = pygame.image.load("MC1.png")
+        self.image = pygame.image.load("MC.png")
         self.x = 50
         self.y = 50
 
@@ -69,11 +65,11 @@ class Player(object):
                 dist = 10
                 if key[pygame.K_DOWN]:
                     self.y = self.y + dist
-                    self.image = pygame.image.load("MC1.png")
+                    self.image = pygame.image.load("MC.png")
 
                 elif key[pygame.K_UP]:
                     self.y = self.y - dist
-                    self.image = pygame.image.load("MCfront.png")
+                    self.image = pygame.image.load("MCback.png")
 
                 elif key[pygame.K_RIGHT]:
                     self.x = self.x + dist
@@ -282,11 +278,10 @@ class Player(object):
                 gameDisplay.blit(bg8,(0,0))
                 currentScreen = bg8
                 player.x = 680
-
      ###### The sprite is going from top to bottom :D
 
     def draw(self, surface):
-        # to move the cat freely :D
+        # to move the MC freely :D
         """ Draw on surface"""
         surface.blit(self.image, (player.x, player.y))
 
@@ -296,10 +291,17 @@ class Player(object):
 ######## py.game.font.Font - custom font downloaded  #####
 pygame.font.init()
 all_fonts = pygame.font.get_fonts()
-okfont = pygame.font.SysFont("timesnewromanps", 5)
-smallfont = pygame.font.SysFont("timesnewromanps", 25)
-mediumfont = pygame.font.SysFont("timesnewromanps", 50)
-largefont = pygame.font.SysFont("timesnewromanps", 100)
+okfont = pygame.font.SysFont("04b03", 2)
+kfont = pygame.font.SysFont("04b03", 20)
+smallfont = pygame.font.SysFont("04b03", 16)
+small1font = pygame.font.SysFont("04b03", 16)
+small2font = pygame.font.SysFont("04b03", 25)
+mediumfont = pygame.font.SysFont("04b03", 45)
+medium1font = pygame.font.SysFont("04b03", 45)
+medium2font = pygame.font.SysFont("04b03", 45)
+largefont = pygame.font.SysFont("04b03", 90)
+large1font = pygame.font.SysFont("04b03", 90)
+large2font = pygame.font.SysFont("04b03", 90)
 
 ##########   define the message/ dialogs to the AI ###############
 def message_to_screen(msg,color, y_displace=0, size = "small"):
@@ -311,12 +313,24 @@ def message_to_screen(msg,color, y_displace=0, size = "small"):
 def text_objects(text,color,size):
     if size == "okie":
         textSurface = smallfont.render(text, True, white)
-    if size == "small":
+    if size == "k":
+        textSurface = kfont.render(text, True, white)
+    elif size == "small":
         textSurface = smallfont.render(text, True, red)
+    elif size == "small1":
+        textSurface = small1font.render(text, True, black)
+    elif size == "small2":
+        textSurface = small2font.render(text, True, purple)
     elif size == "medium":
         textSurface = mediumfont.render(text, True, green)
+    elif size == "medium1":
+        textSurface = medium1font.render(text, True, blue)
     elif size == "large":
         textSurface = largefont.render(text, True, black)
+    elif size == "large1":
+        textSurface = large1font.render(text, True, purple)
+    elif size == "large2":
+        textSurface = large2font.render(text, True, green)
     return textSurface, textSurface.get_rect()
 
 ############# G A M E   P L A Y ##########################
@@ -352,9 +366,10 @@ def gameIntro ():
     intro = True
     ########### layout of the intro screen #####################
     gameDisplay.fill(white)
-    message_to_screen("The Forest", green, -30, size = "large")
-    message_to_screen("Press ENTER to play or ESCAPE to quit.", blue, 160, size = "small")
-    message_to_screen("Press SPACE to view the Game Makers.", blue, 180, size = "small")
+    message_to_screen("The Forest", green, -30, size = "large2")
+    message_to_screen("Press ENTER to play or ESCAPE to quit", red, 160, size = "small")
+    message_to_screen("Press BACKSPACE to see the instructions", red, 180, size = "small")
+    message_to_screen("Press SPACE to view the Game Makers", red, 200, size = "small")
 
     while intro:
         for event in pygame.event.get(): ### choice to exit the game
@@ -366,9 +381,13 @@ def gameIntro ():
                     intro = False
                     gameStart()
 
-                if event.key == pygame.K_SPACE:
+                elif event.key == pygame.K_SPACE:
                     intro = False
                     gameMaker()
+
+                elif event.key == pygame.K_BACKSPACE:
+                    intro = False
+                    gameInstructions()
 
                 elif event.key == pygame.K_ESCAPE:
                     pygame.quit()
@@ -377,17 +396,79 @@ def gameIntro ():
         pygame.display.update()
         clock.tick(40)
 
-############# G A M E   M A K E R ##########################
+############# I N S T R U C T I O N S ##########################\
+def gameInstructions ():
+    instructions = True
+    ########### layout of the intro screen #####################
+    gameDisplay.fill(white)
+    message_to_screen("INSTRUCTIONS", purple, -180, size = "large1")
+    message_to_screen("OBJECTIVE", blue, -90, size = "medium1")
+    message_to_screen("To complete all the tasks by finding her purpose in life.", black, -60, size = "small1")
+    message_to_screen("GAMEPLAY", blue, 20, size = "medium1")
+    message_to_screen("Use the arrow keys to move the character around area.", black, 50, size = "small1")
+    message_to_screen("Get close to the NPC to interact.", black, 70, size = "small1")
+    message_to_screen("Press A, S, or D to make decisions.", black, 90, size = "small1")
+    message_to_screen("Press ENTER to return to the title screen", red, 180, size = "small")
 
+    while instructions:
+        for event in pygame.event.get(): ### choice to exit the game
+            if event.type == pygame.QUIT:
+                pygame.quit()
+                quit()
+
+            if event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_RETURN:
+                    intro = False
+                    gameIntro()
+
+                elif event.key == pygame.K_ESCAPE:
+                    pygame.quit()
+                    quit()
+
+        pygame.display.update()
+        clock.tick(40)
+
+############# S U F F E R I N G ##########################
+def gif(x,y):
+    gameDisplay.blit(giff, (x,y))
+
+x = 90
+y = 50
+
+def gameSuffer():
+    suffer = True
+    gameDisplay.fill(white)
+    gif(x,y)
+    message_to_screen("Press ENTER to return to the title screen", red, 180, size = "small")
+
+    while suffer:
+        for event in pygame.event.get(): ### choice to exit the game
+            if event.type == pygame.QUIT:
+                pygame.quit()
+                quit()
+
+            if event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_RETURN:
+                    intro = False
+                    gameIntro()
+
+                elif event.key == pygame.K_ESCAPE:
+                    pygame.quit()
+                    quit()
+
+        pygame.display.update()
+        clock.tick(40)
+############# G A M E   M A K E R ##########################
 def gameMaker ():
     maker = True
     gameDisplay.fill(white)
-    message_to_screen("Game Makers", purple, -150, size = "large")
-    message_to_screen("Amala Akkiraju", black, -70, size = "medium")
-    message_to_screen("Nhi Nguyen", black, -40, size = "medium")
-    message_to_screen("Samantha Tam", black, -10, size = "medium")
-    message_to_screen("Thalia Nguyen", black, 20, size = "medium")
-    message_to_screen("Press ENTER to return to the title screen.", red, 180, size = "small")
+    message_to_screen("Game Makers", black, -150, size = "large")
+    message_to_screen("Amala Akkiraju", blue, -30, size = "medium1")
+    message_to_screen("Nhi Nguyen", blue, 0, size = "medium1")
+    message_to_screen("Samantha Tam", blue, 30, size = "medium1")
+    message_to_screen("Thalia Nguyen", blue, 60, size = "medium1")
+    message_to_screen("Press SPACE to see us when we were coding this game", red, 160, size = "small")
+    message_to_screen("Press ENTER to return to the title screen", red, 180, size = "small")
 
     while maker:
         for event in pygame.event.get(): ### choice to exit the game
@@ -399,6 +480,10 @@ def gameMaker ():
                 if event.key == pygame.K_RETURN:
                     intro = False
                     gameIntro()
+
+                elif event.key == pygame.K_SPACE:
+                    intro = False
+                    gameSuffer()
 
                 elif event.key == pygame.K_ESCAPE:
                     pygame.quit()
@@ -417,7 +502,7 @@ def gameStart ():
     message_to_screen("I get up out of my bed, get dressed and go to work. It feels like a normal ", white, -100, size = "okie")
     message_to_screen("day as I take the customers\' orders and make them their drinks, when ", white, -80, size = "okie")
     message_to_screen("all of a sudden I find myself on the ground and all I can see is darkness...", white, -60, size = "okie")
-    message_to_screen("Press enter to continue", white, 100, size = "small")
+    message_to_screen("Press ENTER to continue", white, 100, size = "small")
 
     while start:
         for event in pygame.event.get(): ### choice to exit the game
@@ -435,13 +520,45 @@ def gameStart ():
 
         pygame.display.update()
         clock.tick(40)
+############# G A M E   T H A N K S ##########################
+def thank(x,y):
+    gameDisplay.blit(ty, (0,0))
+
+def gameThanks():
+    thanks = True
+    gameDisplay.fill(white)
+    thank(0,0)
+    message_to_screen("You have found your purpose in life! Great job!", purple, -80, size = "small2")
+    message_to_screen("Thank you for playing!", white, -20, size = "k")
+    message_to_screen("Press ENTER to return to the title screen", red, 220, size = "small")
+
+    while thanks:
+        for event in pygame.event.get(): ### choice to exit the game
+            if event.type == pygame.QUIT:
+                pygame.quit()
+                quit()
+
+            if event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_RETURN:
+                    intro = False
+                    gameIntro()
+
+                elif event.key == pygame.K_ESCAPE:
+                    pygame.quit()
+                    quit()
+
+        pygame.display.update()
+        clock.tick(40)
 #############
 pygame.init()
+pygame.display.init()
 gameIntro()
 gameStart()
 gameMaker()
+gameInstructions()
 
 pygame.quit()
+pygame.display.quit()
 quit()
 
 gameLoop()
