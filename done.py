@@ -550,13 +550,12 @@ def talk_to_cat ():
                     intro = False
                     global currentScreen
                     currentScreen = bg2
-                    player.x = 10
-                    player.y = 10
+                    player.x = 250
+                    player.y = 350
                     talk_cat = False
 
                 elif event.key == pygame.K_n:
                     intro = False
-                    global currentScreen
                     currentScreen = bg1
                     player.x = 10
                     player.y = 10
@@ -590,27 +589,19 @@ def talk_to_farmer ():
             if event.type == pygame.QUIT:
                 pygame.quit()
                 quit()
+
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_a:
                     intro = False
-                    gameDisplay.fill(black)
-                    message_to_screen("Fortunately, the slimes seem to enjoy my song and start", white, -180, size = "okie")
-                    message_to_screen("to melt and disappear. Thrilled, the farmer thanks me and", white, -160, size = "okie")
-                    message_to_screen("gives me two things: a 'fruit-like' object that can change", white, -140, size = "okie")
-                    message_to_screen("color and a little seashell. I walk back to the path when I", white, -120, size = "okie")
-                    message_to_screen("find a piece of paper underneath one of the plants. It says,", white, -100, size = "okie")
-                    message_to_screen("'Having a soft heart in a cruel world is courage, not weakness.'", white, -80, size = "okie")
-                    message_to_screen("Press ENTER to continue your journey", white, -20, size = "okie")
-                elif event.key == pygame.K_RETURN:
+
                     global currentScreen
                     currentScreen = bg7
-                    player.x = 50
-                    player.y = 50
+                    player.x = 450
+                    player.y = 400
                     talk_farmer = False
 
                 elif event.key == pygame.K_b:
                     intro = False
-                    global currentScreen
                     currentScreen = bg1
                     player.x = 10
                     player.y = 10
@@ -618,7 +609,6 @@ def talk_to_farmer ():
 
                 elif event.key == pygame.K_c:
                     intro = False
-                    global currentScreen
                     currentScreen = bg1
                     player.x = 10
                     player.y = 10
@@ -654,24 +644,14 @@ def talk_to_unicorn ():
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_d:
                     intro = False
-                    gameDisplay.fill(black)
-                    message_to_screen("When I was giving him the seashell I accidentally dropped it into", white, -180, size = "okie")
-                    message_to_screen("the pond. The shell grew into a beautiful long horn. I take it and", white, -160, size = "okie")
-                    message_to_screen("put it on top of the unicorn's head making him beautiful. Grateful,", white, -140, size = "okie")
-                    message_to_screen("the unicorn thanks me and gives me another piece of paper saying,", white, -120, size = "okie")
-                    message_to_screen("'let love for youself set you free of them.' I sigh and put the ", white, -100, size = "okie")
-                    message_to_screen("paper in my back pocket and continue along", white, -80, size = "okie")
-                    message_to_screen("Press ENTER to continue your journey", white, -20, size = "okie")
-                elif event.key == pygame.K_RETURN:
                     global currentScreen
                     currentScreen = bg8
-                    player.x = 50
-                    player.y = 50
+                    player.x = 400
+                    player.y = 400
                     talk_unicorn = False
 
                 elif event.key == pygame.K_e:
                     intro = False
-                    global currentScreen
                     currentScreen = bg1
                     player.x = 10
                     player.y = 10
@@ -679,7 +659,6 @@ def talk_to_unicorn ():
 
                 elif event.key == pygame.K_f:
                     intro = False
-                    global currentScreen
                     currentScreen = bg1
                     player.x = 10
                     player.y = 10
