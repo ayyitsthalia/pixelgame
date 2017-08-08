@@ -970,6 +970,36 @@ def gameStart ():
 
         pygame.display.update()
         clock.tick(40)
+############# G A M E   T H A N K S ##########################
+def thank(x,y):
+    gameDisplay.blit(ty, (0,0))
+
+def gameThanks():
+    thanks = True
+    gameDisplay.fill(white)
+    thank(0,0)
+    message_to_screen("You have found your purpose in life! Great job!", purple, -80, size = "small2")
+    message_to_screen("Thank you for playing!", white, -20, size = "k")
+    message_to_screen("Press ENTER to return to the title screen", red, 220, size = "small")
+
+    while thanks:
+        for event in pygame.event.get(): ### choice to exit the game
+            if event.type == pygame.QUIT:
+                pygame.quit()
+                quit()
+
+            if event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_RETURN:
+                    intro = False
+                    gameIntro()
+
+                elif event.key == pygame.K_ESCAPE:
+                    pygame.quit()
+                    quit()
+
+        pygame.display.update()
+        clock.tick(40)
+####
 #############
 pygame.init()
 gameIntro()
