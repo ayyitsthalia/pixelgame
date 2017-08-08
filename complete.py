@@ -37,6 +37,7 @@ giff = pygame.image.load("giphy.gif").convert_alpha()
 ty = pygame.image.load("thanks.png")
 
 playerimg = pygame.image.load('MC.png')
+
 clock = pygame.time.Clock()
 currentScreen = bg1
 global gameOver #### global gameOver
@@ -467,7 +468,7 @@ def gameMaker ():
     message_to_screen("Nhi Nguyen", blue, 0, size = "medium1")
     message_to_screen("Samantha Tam", blue, 30, size = "medium1")
     message_to_screen("Thalia Nguyen", blue, 60, size = "medium1")
-    message_to_screen("Press SPACE to see us when we were coding this game", red, 160, size = "small")
+    message_to_screen("Press SPACE for no good reason!", red, 160, size = "small")
     message_to_screen("Press ENTER to return to the title screen", red, 180, size = "small")
 
     while maker:
@@ -549,13 +550,14 @@ def gameThanks():
 
         pygame.display.update()
         clock.tick(40)
-#############
+####
 pygame.init()
 pygame.display.init()
 gameIntro()
 gameStart()
 gameMaker()
 gameInstructions()
+gameThanks()
 
 pygame.quit()
 pygame.display.quit()
