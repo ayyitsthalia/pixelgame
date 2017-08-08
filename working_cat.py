@@ -32,14 +32,14 @@ icon = pygame.image.load('nickright.png') ### icon
 pygame.display.set_icon(icon)
 
 ##########  images sources  #############
-bg1 = pygame.image.load("4leftnew.png") ##dark room
-bg2 = pygame.image.load("3leftnew.png")   ##fairy scene ***
-bg3 = pygame.image.load("3rightnew.png")   ##map right side
-bg4 = pygame.image.load("2leftnew.png")##map farmer
-bg5 = pygame.image.load("2rightnew.png")      ##map unicorn ***
-bg6 = pygame.image.load("1leftnew.png")        ##map bottom left corner ***
-bg7 = pygame.image.load("1rightnew.png")        ##map bottom right corner ***
-bg8 = pygame.image.load("4rightnew.png")        ##the boss screen
+bg1 = pygame.image.load("4leftnew.png")
+bg2 = pygame.image.load("3leftnew.png") 
+bg3 = pygame.image.load("3rightnew.png") 
+bg4 = pygame.image.load("2leftnew.png")
+bg5 = pygame.image.load("2rightnew.png")  
+bg6 = pygame.image.load("1leftnew.png")   
+bg7 = pygame.image.load("1rightnew.png")     
+bg8 = pygame.image.load("4rightnew.png")       
 
 playerimg = pygame.image.load('MC1.png')
 clock = pygame.time.Clock()
@@ -310,7 +310,26 @@ class Cat(object):
                 talk_to_cat()
             else:
                 pass
-            
+
+################## F A R M E R ##############################################
+class Farmer(object):
+    def __init__(self):
+        self.image = pygame.image.load("farmer.png")
+        self.x = 200
+        self.y = 180
+
+    def color(self, surface):
+        if currentScreen == bg2:
+            surface.blit(self.image, (self.x, self.y))
+        else: 
+            pass
+
+    def contact(self, player):
+        if abs((self.x - player.x) < 10) and abs((self.y - player.y) < 10):
+            if currentScreen == bg2:
+                talk_to_farmer()
+            else:
+                pass
 
 ################## M E S S A G E S #####################################
 
@@ -344,6 +363,7 @@ def text_objects(text,color,size):
 #global player
 player = Player()
 cat = Cat()
+farmer = Farmer()
 currentScreen = bg1
 ################ #####################
 def game_running ():
@@ -363,6 +383,8 @@ def game_running ():
             player.draw(gameDisplay)
             cat.paint(gameDisplay)
             cat.touch(player)
+            farmer.color(gameDisplay)
+            farmer.contact(player)
             player.update()
             pygame.display.update()
             gameDisplay.fill((0,0,0))
@@ -477,6 +499,60 @@ def talk_to_cat ():
         pygame.display.update()
         clock.tick(40)
             
+#############  T A L K   T O   F A R M E R   ############################
+def talk_to_farmer ():
+    talk_farmer = True
+    gameDisplay.fill(black)
+    message_to_screen("All by myself, I walk along the path when I see an old ", white, -200, size = "okie")
+    
+    message_to_screen("farmer frowning about something. Since I have nothing better  ", white, -180, size = "okie")
+    message_to_screen("to do, I go over and ask him what happened. He explains to me,", white, -160, size = "okie")
+    message_to_screen("'My plants are under attack from the vicious slime viruses and ", white, -140, size = "okie")
+    message_to_screen("the harvest is about to come soon. If I don't save my plants I ", white, -120, size = "okie")
+    message_to_screen(" won't have any food to give my family. Can you help me?'", white, -100, size= "okie")
+
+    message_to_screen("type a to sing and calm the farmer ", white, -60, size = "okie")
+    message_to_screen("type b to set fire and kill all the slimes", white, -40, size = "okie")
+    message_to_screen("type c to ignore the farmer ", white, -20, size = "okie")
+
+    while talk_farmer:
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                pygame.quit()
+                quit()
+
+            if event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_a:
+                    intro = False
+                    global currentScreen
+                    currentScreen = bg7
+                    player.x = 50
+                    player.y = 50
+                    talk_farmer = False
+
+                elif event.key == pygame.K_b:
+                    intro = False
+                    global currentScreen
+                    currentScreen = bg1
+                    player.x = 10
+                    player.y = 10
+                    talk_farmer = False
+
+                elif event.key == pygame.K_c:
+                    intro = False
+                    global currentScreen
+                    currentScreen = bg1
+                    player.x = 10
+                    player.y = 10
+                    talk_farmer = False
+                    
+                elif event.key == pygame.K_ESCAPE:
+                    pygame.quit()
+                    quit()
+        
+        pygame.display.update()
+        clock.tick(40)
+
 ############# S T A R T I N G   T H E   G A M E ##########################
 def gameStart ():
     start = True
