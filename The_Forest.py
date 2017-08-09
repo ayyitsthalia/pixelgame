@@ -351,8 +351,8 @@ class Unicorn(object):
 class Rock(object):
     def __init__(self):
         self.image = pygame.image.load("rock.png")
-        self.x = 516
-        self.y = 147
+        self.x = 518
+        self.y = 190
 
     def create(self, surface):
         if currentScreen == bg7:
