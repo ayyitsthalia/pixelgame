@@ -866,9 +866,9 @@ def talk_to_rock ():
     message_to_screen("I look because I'm as pretty as the other unicorns and everyone teases ", white, -140, size = "okie")
     message_to_screen("me.' I need to help him somehow. ", white, -120, size = "okie")
 
-    message_to_screen("Type A to give the unicorn a seashell", blue, -60, size = "okie1")
-    message_to_screen("Type S to compliment the unicorn", blue, -40, size = "okie1")
-    message_to_screen("Type D to give the fruit to the unicorn ", blue, -20, size = "okie1")
+    message_to_screen("Type A to use a hammer to break the big rocks", blue, -60, size = "okie1")
+    message_to_screen("Type S to play the flute", blue, -40, size = "okie1")
+    message_to_screen("Type D to read the book from the unicorn", blue, -20, size = "okie1")
 
     while talk_rock:
         for event in pygame.event.get():
@@ -880,12 +880,33 @@ def talk_to_rock ():
                 if event.key == pygame.K_a:
                     intro = False
                     gameDisplay.fill(black)
-                    message_to_screen("When I was giving him the seashell I accidentally dropped it into", white, -180, size = "okie")
-                    message_to_screen("the pond. The shell grew into a beautiful long horn. I take it and", white, -160, size = "okie")
-                    message_to_screen("put it on top of the unicorn's head making him beautiful. Grateful,", white, -140, size = "okie")
-                    message_to_screen("the unicorn thanks me and gives me another piece of paper saying,", white, -120, size = "okie")
-                    message_to_screen("'let love for youself set you free of them.' I sigh and put the ", white, -100, size = "okie")
-                    message_to_screen("paper in my back pocket and continue along", white, -80, size = "okie")
+                    message_to_screen("I use the hammer the unicorn gave me to break the big rocks into", white, -140, size = "okie")
+                    message_to_screen("little rocks. The rocks get mad and start attacking me. The little", white, -120, size = "okie")
+                    message_to_screen("rock watches me get crushed in fear of being bullied by the other rocks.", white, -100, size = "okie")
+
+                    message_to_screen("Press SPACE to restart your journey", red, 180, size = "small")
+
+                elif event.key == pygame.K_s:
+                    intro = False
+                    gameDisplay.fill(black)
+                    message_to_screen("I play the flute given to me by the unicorn but I haven't played the", white, -140, size = "okie")
+                    message_to_screen("flute in a few years and I play a high pitched squeaky sound, irritating", white, -120, size = "okie")
+                    message_to_screen("the rocks. They surround me and crush me. ", white, -100, size = "okie")
+
+                    message_to_screen("Press SPACE to restart your journey", red, 180, size = "small")
+
+                elif event.key == pygame.K_d:
+                    intro = False
+                    gameDisplay.fill(black)
+                    message_to_screen("I use the book the unicorn gave me. I open it, realizing that", white, -180, size = "okie")
+                    message_to_screen("the book is empty. I panic and just stand there. After a while,", white, -160, size = "okie")
+                    message_to_screen("I tell a story about a beautiful garden, a story my mom used to", white, -140, size = "okie")
+                    message_to_screen("as a child. The rocks thank me for bringing them joy and life", white, -140, size = "okie")
+                    message_to_screen("in their boring life. I walk away contently and I pass by a cave,", white, -140, size = "okie")
+                    message_to_screen("I see a piece of paper wedged between the rocks of the cave. I", white, -140, size = "okie")
+                    message_to_screen("wiggle out the piece of paper and read it. 'There is no love without'", white, -140, size = "okie")
+                    message_to_screen("forgiveness and there is no forgiveness without love.' I don't understand", white, -140, size = "okie")
+                    message_to_screen("and keep walking straight.", white, -140, size = "okie")
 
                     message_to_screen("Press ENTER to continue your journey", red, 180, size = "small")
 
@@ -895,25 +916,6 @@ def talk_to_rock ():
                     player.x = 50
                     player.y = 50
                     talk_rock = False
-
-                elif event.key == pygame.K_s:
-                    intro = False
-                    gameDisplay.fill(black)
-                    message_to_screen("'Society is never nice to anyone anyways.'The unicorn gets angry", white, -180, size = "okie")
-                    message_to_screen("and says,'The same goes for you.' I think to myself,'Wow he's mean,", white, -160, size = "okie")
-                    message_to_screen("no wonder he doesn't have any friends.' Funnily enough, I soon find", white, -140, size = "okie")
-                    message_to_screen("myself in back in the dark room.", white, -120, size = "okie")
-
-                    message_to_screen("Press SPACE to restart your journey", red, 180, size = "small")
-
-                elif event.key == pygame.K_d:
-                    intro = False
-                    gameDisplay.fill(black)
-                    message_to_screen("The unicorn is allergic to the fruit and has a reaction. Well,", white, -180, size = "okie")
-                    message_to_screen("how was I supposed to know. He gets mad at me and beats me up.", white, -160, size = "okie")
-                    message_to_screen("I black out and find myself back in the dark room with the cat", white, -140, size = "okie")
-
-                    message_to_screen("Press SPACE to restart your journey", red, 180, size = "small")
 
                 elif event.key == pygame.K_SPACE:
                     global currentScreen
