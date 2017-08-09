@@ -1041,7 +1041,9 @@ def talk_to_fairy ():
                     message_to_screen("and Dad. I was flabbergasted. They both cry out, seeing ", white, -100, size = "okie")
                     message_to_screen("how I was fine and run over to hug me. 'We\'re sorry for ", white, -80, size = "okie")
                     message_to_screen("what we did. We should\'ve been better parents.' I smile,", white, -60, size = "okie")
-                    message_to_screen("knowing that I would have achieved great things even if I was by myself.", white, -40, size = "okie")
+                    message_to_screen("realizing that the pieces of paper were hints to remind me", white, -40, size = "okie")
+                    message_to_screen("that I don\'t need to prove to others that I\'m good enough", white, -20, size = "okie")
+                    message_to_screen("other than myself and forgiving others will lessen my shoulders. ", white, 0, size = "okie")
 
                     message_to_screen("Press ENTER", red, 180, size = "small")
 
