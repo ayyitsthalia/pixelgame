@@ -1040,11 +1040,7 @@ def talk_to_fairy ():
                     message_to_screen("Press ENTER", red, 180, size = "small")
 
                 elif event.key == pygame.K_RETURN:
-                    global currentScreen
-                    currentScreen = ty
-                    player.x = 50
-                    player.y = 50
-                    talk_fairy = False
+                    intro = False
                     gameThanks()
 
                 elif event.key == pygame.K_s:
